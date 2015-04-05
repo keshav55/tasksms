@@ -1,5 +1,3 @@
-
-var express = require('express');
 var restler = require('restler');
 var unirest = require('unirest');
 var Firebase = require("firebase");
@@ -14,27 +12,8 @@ app.listen(app.get('port'), '0.0.0.0', function() {
   console.log('Server listening on port ' + app.get('port'));
 });
 
-var myFirebaseRef = new Firebase("https://tasksms.firebaseio.com/");
-
-
-
-
-
-
-
-
-
-
-
-
 var Firebase = require('firebase'),
     usersRef = new Firebase('https://tasksms.firebaseio.com/users/');
-
-
-
-
-
-var array = ["+15107097856"];
 
 app.post('/sms', function(req, res) {
     if (twilio.validateExpressRequest(req, process.env.TWILIO_AUTH_TOKEN)) {
@@ -61,7 +40,7 @@ app.post('/sms', function(req, res) {
     }
 });
 
-var sendSMS(number, message) {
+var sendSMS = function(number, message) {
 	unirest.post("https://twilio.p.mashape.com/AC1d8ae61e37d74d0e48947d095c9ae32d/SMS/Messages.json")
 		.header("Authorization", "Basic QUMxZDhhZTYxZTM3ZDc0ZDBlNDg5NDdkMDk1YzlhZTMyZDo0NDVmMmY5OGM4YTlkODJiNTUxMjNlM2VhMjRhOTgxNw==")
 		.header("X-Mashape-Key", "5uiZBYWupumshcTKlKIZwuTP5PQNp1CQSWKjsnPckXGf0dufZs")
@@ -71,28 +50,27 @@ var sendSMS(number, message) {
 		.end(function (result) {
 	  		console.log(result.status, result.headers, result.body);
 		});
-	}
 };
 
 
-if (array) {
+// if (array) {
 
-for (var i = 0; i < array.length; i++) {
-// These code snippets use an open-source library.
-unirest.post("https://twilio.p.mashape.com/AC1d8ae61e37d74d0e48947d095c9ae32d/SMS/Messages.json")
-.header("Authorization", "Basic QUMxZDhhZTYxZTM3ZDc0ZDBlNDg5NDdkMDk1YzlhZTMyZDo0NDVmMmY5OGM4YTlkODJiNTUxMjNlM2VhMjRhOTgxNw==")
-.header("X-Mashape-Key", "5uiZBYWupumshcTKlKIZwuTP5PQNp1CQSWKjsnPckXGf0dufZs")
-.header("Content-Type", "application/x-www-form-urlencoded")
-.header("Accept", "text/plain")
-// .send("From", "+19258923685")
-// .send("Body", "HELLO,,OKAY")
-// .send("To", "+1 (510)-709-7856")
-.send({ "From": "+19258923685", "Body": "topkek", "To": array[i]})
-.end(function (result) {
-  console.log(result.status, result.headers, result.body);
-});
-}
-}
+// for (var i = 0; i < array.length; i++) {
+// // These code snippets use an open-source library.
+// unirest.post("https://twilio.p.mashape.com/AC1d8ae61e37d74d0e48947d095c9ae32d/SMS/Messages.json")
+// .header("Authorization", "Basic QUMxZDhhZTYxZTM3ZDc0ZDBlNDg5NDdkMDk1YzlhZTMyZDo0NDVmMmY5OGM4YTlkODJiNTUxMjNlM2VhMjRhOTgxNw==")
+// .header("X-Mashape-Key", "5uiZBYWupumshcTKlKIZwuTP5PQNp1CQSWKjsnPckXGf0dufZs")
+// .header("Content-Type", "application/x-www-form-urlencoded")
+// .header("Accept", "text/plain")
+// // .send("From", "+19258923685")
+// // .send("Body", "HELLO,,OKAY")
+// // .send("To", "+1 (510)-709-7856")
+// .send({ "From": "+19258923685", "Body": "topkek", "To": array[i]})
+// .end(function (result) {
+//   console.log(result.status, result.headers, result.body);
+// });
+// }
+// }
 
 // app.all('/', function(request, response) {
 //   restler.get('http://reddit.com/.json').on('complete', function(reddit) {

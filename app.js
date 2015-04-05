@@ -35,9 +35,7 @@ var handleText = function(number, receivedText) {
     console.log(path);
     var actionsRef = myFirebaseRef.child(path);
     actionsRef.once('value', function(actionsSnapshot) {
-    	console.log('actionsSnapshot: ' + actionsRef);
     	var actions = actionsSnapshot.val();
-    	console.log(actions);
     	for (var i = 0; i < actions.length; i++) {
     		var action = actions[i];
     		if (action.type === 'SMS') {

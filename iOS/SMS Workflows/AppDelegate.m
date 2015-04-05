@@ -16,6 +16,24 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"PhoneNumber"]) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Phone Number" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.keyboardType = UIKeyboardTypePhonePad;
+        }];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            NSString *phone = [[alertController.textFields firstObject] text];
+            [[NSUserDefaults standardUserDefaults] setObject:phone forKey:@"PhoneNumber"];
+        }];
+        
+        [alertController addAction:action];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
+        });
+    }
     // Override point for customization after application launch.
     return YES;
 }

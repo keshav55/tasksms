@@ -34,12 +34,16 @@ app.post('/sms', function(req, res) {
     console.log(path);
     var actionsRef = usersRef.child(path);
     actionsRef.once('value', function(actions) {
+    	console.log(actions);
     	for (var i = 0; i < actions.length; i++) {
     		var action = actions[i];
+    		console.log(action);
     		if (action.type === 'SMS') {
     			var message = action.message;
+    			console.log(action.recipients);
     			for (var j = 0; j < actions.recipients.length; j++) {
     				var recipient = actions.recipients[j];
+    				console.log(recipient);
     				recipient = '+' + recipient;
     				sendSMS(recipient, message);
     			}

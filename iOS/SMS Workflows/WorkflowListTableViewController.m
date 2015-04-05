@@ -47,9 +47,10 @@
         workflowViewController.workflow.command = [[alertController.textFields firstObject] text];
         Workflow *workflow = workflowViewController.workflow;
         workflowViewController.completionHandler = ^{
-            Firebase *mainRef = [self.firebase childByAppendingPath:@"users/17143885687/workflows"];
+            NSString *phoneNumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"PhoneNumber"];
+            NSString *path = [NSString stringWithFormat:@"users/%@/workflows", phoneNumber];
+            Firebase *mainRef = [self.firebase childByAppendingPath:path];
             Firebase *ref = [mainRef childByAppendingPath:workflow.command];
-            NSLog(@"Setting %@", [workflow dictionaryRepresentation]);
             [ref setValue:[workflow dictionaryRepresentation] withCompletionBlock:^(NSError *error, Firebase *ref) {
                 if (error) {
                     NSLog(@"%@", error);

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		218F77F91AD1A07800FFE628 /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218F77F81AD1A07800FFE628 /* MyoKit.framework */; };
+		218F77FB1AD1A08A00FFE628 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218F77FA1AD1A08A00FFE628 /* CoreBluetooth.framework */; };
+		218F77FD1AD1A09000FFE628 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 218F77FC1AD1A09000FFE628 /* SystemConfiguration.framework */; };
 		3851035AB89851F3D0B296EC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D23D6A6D4F1178371403024A /* libPods.a */; };
 		7A0208231AD053E20056B053 /* WorkflowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0208221AD053E20056B053 /* WorkflowViewController.m */; };
 		7A0208261AD054090056B053 /* Workflow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0208251AD054090056B053 /* Workflow.m */; };
@@ -31,6 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		218F77F81AD1A07800FFE628 /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MyoKit.framework; sourceTree = "<group>"; };
+		218F77FA1AD1A08A00FFE628 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		218F77FC1AD1A09000FFE628 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7A0208211AD053E20056B053 /* WorkflowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkflowViewController.h; sourceTree = "<group>"; };
 		7A0208221AD053E20056B053 /* WorkflowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkflowViewController.m; sourceTree = "<group>"; };
 		7A0208241AD054090056B053 /* Workflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workflow.h; sourceTree = "<group>"; };
@@ -76,7 +82,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				218F77FD1AD1A09000FFE628 /* SystemConfiguration.framework in Frameworks */,
+				218F77FB1AD1A08A00FFE628 /* CoreBluetooth.framework in Frameworks */,
 				3851035AB89851F3D0B296EC /* libPods.a in Frameworks */,
+				218F77F91AD1A07800FFE628 /* MyoKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +171,9 @@
 		DDF6F3F9D6816BF2787FE841 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				218F77FC1AD1A09000FFE628 /* SystemConfiguration.framework */,
+				218F77FA1AD1A08A00FFE628 /* CoreBluetooth.framework */,
+				218F77F81AD1A07800FFE628 /* MyoKit.framework */,
 				D23D6A6D4F1178371403024A /* libPods.a */,
 			);
 			name = Frameworks;
@@ -200,6 +212,12 @@
 				TargetAttributes = {
 					7A7752461AD04B490025C2C1 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 2T6W5P4T34;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -395,6 +413,10 @@
 			baseConfigurationReference = 96F7483A1A794906A23A5027 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "SMS Workflows/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -406,6 +428,10 @@
 			baseConfigurationReference = 8A9683A5211C4D5B9EA72B08 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "SMS Workflows/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

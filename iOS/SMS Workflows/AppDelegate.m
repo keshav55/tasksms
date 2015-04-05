@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import  <MyoKit/MyoKit.h>
 
 @interface AppDelegate ()
 
@@ -35,6 +36,9 @@
         });
     }
     // Override point for customization after application launch.
+    
+    [TLMHub sharedHub];
+    [[TLMHub sharedHub] attachToAdjacent];
     return YES;
 }
 

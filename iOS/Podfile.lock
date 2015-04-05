@@ -1,25 +1,16 @@
 PODS:
   - Firebase (2.2.0)
-  - MyoSDK (0.1.1)
   - RDHCollectionViewGridLayout (1.2.1)
+  - Unirest (1.1.4)
 
 DEPENDENCIES:
   - Firebase
-  - MyoSDK (from `https://github.com/yagudaev/MyoSDK.git`)
   - RDHCollectionViewGridLayout (~> 1.2)
-
-EXTERNAL SOURCES:
-  MyoSDK:
-    :git: https://github.com/yagudaev/MyoSDK.git
-
-CHECKOUT OPTIONS:
-  MyoSDK:
-    :commit: d37b9be9de36abdc89d82edfae4228c309efad15
-    :git: https://github.com/yagudaev/MyoSDK.git
+  - Unirest (~> 1.1.4)
 
 SPEC CHECKSUMS:
   Firebase: e5f9cf72c72a9fdaf7e136012b6c52a263a23ca7
-  MyoSDK: da410cc58233ae776a7d8481fc04580c877f326a
   RDHCollectionViewGridLayout: 580e29225e8a625b05226d3d3bcd88833720cfee
+  Unirest: 5e4d93eaf32463bf619a4ecd3bbc8c32acf21eac
 
 COCOAPODS: 0.36.3

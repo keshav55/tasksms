@@ -23,14 +23,17 @@ app.post('/sms', function(req, res) {
 	var receivedText = req.body.Body;
     var number = req.body.From;
 
+	if (number.substring(0, 1) == '+') { 
+  		number = str.substring(1);
+	}
     console.log(req.body);
 
 	console.log('received ' + receivedText + ' from ' + number);
 
-    var path = number + '/' + receivedText;
+    var path = number + '/' + receivedText + '/actions';
     console.log(path);
-    var workflowRef = usersRef.child(path);
-    workflowRef.once('actions', function(actions) {
+    var actionsRef = usersRef.child(path);
+    actionsRef.once('value', function(actions) {
     	for (var i = 0; i < actions.length; i++) {
     		var action = actions[i];
     		if (action.type === 'SMS') {

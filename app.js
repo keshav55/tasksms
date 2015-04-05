@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+app.set('port', process.env.PORT || 3000);
 
 var restler = require('restler');
 var unirest = require('unirest');
@@ -11,8 +12,6 @@ app.use(bodyParser());
 var twilio = require('twilio');
 var client = new twilio.RestClient();
 
-app.set('port', process.env.PORT || 3000);
-
 app.listen(app.get('port'), '0.0.0.0', function() {
   console.log('Server listening on port ' + app.get('port'));
 });
@@ -21,6 +20,7 @@ var Firebase = require('firebase'),
     usersRef = new Firebase('https://tasksms.firebaseio.com/users/');
 
 app.post('/sms', function(req, res) {
+	console.log(process.env.TWILIO_AUTH_TOKEN);
     if (twilio.validateExpressRequest(req, process.env.TWILIO_AUTH_TOKEN)) {
         var receivedText = req.body.Body;
         var number = req.body.from;

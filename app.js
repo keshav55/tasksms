@@ -4,7 +4,7 @@ var restler = require('restler');
 var unirest = require('unirest');
 var Firebase = require("firebase");
 var twilio = require('twilio');
-var client = require('twilio')('AC1d8ae61e37d74d0e48947d095c9ae32d','445f2f98c8a9d82b55123e3ea24a9817')
+var client = require('twilio')('AC1d8ae61e37d74d0e48947d095c9ae32d','')
 
 var app = express();
 
@@ -73,9 +73,6 @@ unirest.post("https://twilio.p.mashape.com/AC1d8ae61e37d74d0e48947d095c9ae32d/SM
 .header("X-Mashape-Key", "5uiZBYWupumshcTKlKIZwuTP5PQNp1CQSWKjsnPckXGf0dufZs")
 .header("Content-Type", "application/x-www-form-urlencoded")
 .header("Accept", "text/plain")
-// .send("From", "+19258923685")
-// .send("Body", "HELLO,,OKAY")
-// .send("To", "+1 (510)-709-7856")
 .send({ "From": "+19258923685", "Body": "topkek", "To": array[i]})
 .end(function (result) {
   console.log(result.status, result.headers, result.body);

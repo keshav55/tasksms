@@ -14,7 +14,8 @@
     "firebase": "*",
     "restler": "*",
     "unirest": "*",
-    "body-parser": "*"
+    "body-parser": "*",
+    "myo": "*"
   },
   "keywords": [
     "twilio",

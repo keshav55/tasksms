@@ -39,9 +39,15 @@ app.post('/sms', function(req, res) {
         var path = number + '/' + receivedText;
         var workflowRef = usersRef.child(path);
         workflowRef.once("actions", function(actions) {
-        	for (var action in actions) {
+        	for (var i = 0; i < actions.length; i++) {
+        		var action = actions[i];
         		if (action.type === 'SMS') {
-
+        			var message = action.message;
+        			for (var j = 0; j < actions.recipients.length; j++) {
+        				var recipient = actions.recipients[j];
+        				recipient = '+' + recipient;
+        				sendSMS(recipient, message);
+        			}
         		}
         	}
         });
@@ -50,18 +56,18 @@ app.post('/sms', function(req, res) {
     }
 });
 
-// var sendSMS(num message) {
-// 	unirest.post("https://twilio.p.mashape.com/AC1d8ae61e37d74d0e48947d095c9ae32d/SMS/Messages.json")
-// 		.header("Authorization", "Basic QUMxZDhhZTYxZTM3ZDc0ZDBlNDg5NDdkMDk1YzlhZTMyZDo0NDVmMmY5OGM4YTlkODJiNTUxMjNlM2VhMjRhOTgxNw==")
-// 		.header("X-Mashape-Key", "5uiZBYWupumshcTKlKIZwuTP5PQNp1CQSWKjsnPckXGf0dufZs")
-// 		.header("Content-Type", "application/x-www-form-urlencoded")
-// 		.header("Accept", "text/plain")
-// 		.send({ "From": "+19258923685", "Body": message, "To": number})
-// 		.end(function (result) {
-// 	  		console.log(result.status, result.headers, result.body);
-// 		});
-// 	}
-// };
+var sendSMS(number, message) {
+	unirest.post("https://twilio.p.mashape.com/AC1d8ae61e37d74d0e48947d095c9ae32d/SMS/Messages.json")
+		.header("Authorization", "Basic QUMxZDhhZTYxZTM3ZDc0ZDBlNDg5NDdkMDk1YzlhZTMyZDo0NDVmMmY5OGM4YTlkODJiNTUxMjNlM2VhMjRhOTgxNw==")
+		.header("X-Mashape-Key", "5uiZBYWupumshcTKlKIZwuTP5PQNp1CQSWKjsnPckXGf0dufZs")
+		.header("Content-Type", "application/x-www-form-urlencoded")
+		.header("Accept", "text/plain")
+		.send({ "From": "+19258923685", "Body": message, "To": number})
+		.end(function (result) {
+	  		console.log(result.status, result.headers, result.body);
+		});
+	}
+};
 
 
 if (array) {

@@ -6,8 +6,8 @@ var restler = require('restler');
 var unirest = require('unirest');
 var Firebase = require("firebase");
 
-var bodyParser = require('body-parser');
-app.use(bodyParser());
+app.use(require('body-parser').json());
+app.use(require('body-parser').urlencoded({extended: true}));
 
 var twilio = require('twilio');
 var client = new twilio.RestClient();

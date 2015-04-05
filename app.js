@@ -39,6 +39,7 @@ app.post('/sms', function(req, res) {
         	}
         });
     } else {
+    	console.log('could not validate request');
         res.send('you are not twilio.  Buzz off.');
     }
 });

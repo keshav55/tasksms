@@ -1,0 +1,4 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+pod 'Firebase'
+pod 'RDHCollectionViewGridLayout', '~> 1.2'

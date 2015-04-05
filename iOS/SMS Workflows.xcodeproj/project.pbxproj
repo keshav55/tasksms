@@ -1,0 +1,417 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3851035AB89851F3D0B296EC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D23D6A6D4F1178371403024A /* libPods.a */; };
+		7A0208231AD053E20056B053 /* WorkflowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0208221AD053E20056B053 /* WorkflowViewController.m */; };
+		7A0208261AD054090056B053 /* Workflow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0208251AD054090056B053 /* Workflow.m */; };
+		7A0208291AD0541C0056B053 /* WorkflowAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0208281AD0541C0056B053 /* WorkflowAction.m */; };
+		7A02082C1AD054480056B053 /* WorkflowSMSAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A02082B1AD054480056B053 /* WorkflowSMSAction.m */; };
+		7A0208301AD057350056B053 /* WorkflowSMSActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A02082E1AD057350056B053 /* WorkflowSMSActionCell.m */; };
+		7A0208331AD057A90056B053 /* WorkflowSMSActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A0208321AD057A90056B053 /* WorkflowSMSActionCell.xib */; };
+		7A0208391AD05A390056B053 /* WorkflowActionPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0208381AD05A390056B053 /* WorkflowActionPickerController.m */; };
+		7A02083D1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A02083B1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.m */; };
+		7A02083E1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A02083C1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.xib */; };
+		7A0208411AD063C70056B053 /* WorkflowActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0208401AD063C70056B053 /* WorkflowActionCell.m */; };
+		7A0208441AD07DA00056B053 /* WorkflowListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0208431AD07DA00056B053 /* WorkflowListTableViewController.m */; };
+		7A77524D1AD04B490025C2C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A77524C1AD04B490025C2C1 /* main.m */; };
+		7A7752501AD04B490025C2C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A77524F1AD04B490025C2C1 /* AppDelegate.m */; };
+		7A7752561AD04B490025C2C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7752541AD04B490025C2C1 /* Main.storyboard */; };
+		7A7752581AD04B490025C2C1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A7752571AD04B490025C2C1 /* Images.xcassets */; };
+		7A77525B1AD04B490025C2C1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A7752591AD04B490025C2C1 /* LaunchScreen.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7A0208211AD053E20056B053 /* WorkflowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkflowViewController.h; sourceTree = "<group>"; };
+		7A0208221AD053E20056B053 /* WorkflowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkflowViewController.m; sourceTree = "<group>"; };
+		7A0208241AD054090056B053 /* Workflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Workflow.h; sourceTree = "<group>"; };
+		7A0208251AD054090056B053 /* Workflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Workflow.m; sourceTree = "<group>"; };
+		7A0208271AD0541C0056B053 /* WorkflowAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkflowAction.h; sourceTree = "<group>"; };
+		7A0208281AD0541C0056B053 /* WorkflowAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkflowAction.m; sourceTree = "<group>"; };
+		7A02082A1AD054480056B053 /* WorkflowSMSAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkflowSMSAction.h; sourceTree = "<group>"; };
+		7A02082B1AD054480056B053 /* WorkflowSMSAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkflowSMSAction.m; sourceTree = "<group>"; };
+		7A02082D1AD057350056B053 /* WorkflowSMSActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkflowSMSActionCell.h; sourceTree = "<group>"; };
+		7A02082E1AD057350056B053 /* WorkflowSMSActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkflowSMSActionCell.m; sourceTree = "<group>"; };
+		7A0208321AD057A90056B053 /* WorkflowSMSActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkflowSMSActionCell.xib; sourceTree = "<group>"; };
+		7A0208371AD05A390056B053 /* WorkflowActionPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkflowActionPickerController.h; sourceTree = "<group>"; };
+		7A0208381AD05A390056B053 /* WorkflowActionPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkflowActionPickerController.m; sourceTree = "<group>"; };
+		7A02083A1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkflowActionCollectionViewCell.h; sourceTree = "<group>"; };
+		7A02083B1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkflowActionCollectionViewCell.m; sourceTree = "<group>"; };
+		7A02083C1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkflowActionCollectionViewCell.xib; sourceTree = "<group>"; };
+		7A02083F1AD063C70056B053 /* WorkflowActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkflowActionCell.h; sourceTree = "<group>"; };
+		7A0208401AD063C70056B053 /* WorkflowActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkflowActionCell.m; sourceTree = "<group>"; };
+		7A0208421AD07DA00056B053 /* WorkflowListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkflowListTableViewController.h; sourceTree = "<group>"; };
+		7A0208431AD07DA00056B053 /* WorkflowListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkflowListTableViewController.m; sourceTree = "<group>"; };
+		7A7752471AD04B490025C2C1 /* SMS Workflows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SMS Workflows.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A77524B1AD04B490025C2C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A77524C1AD04B490025C2C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7A77524E1AD04B490025C2C1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7A77524F1AD04B490025C2C1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7A7752551AD04B490025C2C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7A7752571AD04B490025C2C1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7A77525A1AD04B490025C2C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		8A9683A5211C4D5B9EA72B08 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		96F7483A1A794906A23A5027 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D23D6A6D4F1178371403024A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A7752441AD04B490025C2C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3851035AB89851F3D0B296EC /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0E3C9317D98FE229073F2BA9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				96F7483A1A794906A23A5027 /* Pods.debug.xcconfig */,
+				8A9683A5211C4D5B9EA72B08 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7A77523E1AD04B490025C2C1 = {
+			isa = PBXGroup;
+			children = (
+				7A7752491AD04B490025C2C1 /* SMS Workflows */,
+				7A7752481AD04B490025C2C1 /* Products */,
+				0E3C9317D98FE229073F2BA9 /* Pods */,
+				DDF6F3F9D6816BF2787FE841 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7A7752481AD04B490025C2C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A7752471AD04B490025C2C1 /* SMS Workflows.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7A7752491AD04B490025C2C1 /* SMS Workflows */ = {
+			isa = PBXGroup;
+			children = (
+				7A77524E1AD04B490025C2C1 /* AppDelegate.h */,
+				7A77524F1AD04B490025C2C1 /* AppDelegate.m */,
+				7A0208421AD07DA00056B053 /* WorkflowListTableViewController.h */,
+				7A0208431AD07DA00056B053 /* WorkflowListTableViewController.m */,
+				7A0208211AD053E20056B053 /* WorkflowViewController.h */,
+				7A0208221AD053E20056B053 /* WorkflowViewController.m */,
+				7A0208371AD05A390056B053 /* WorkflowActionPickerController.h */,
+				7A0208381AD05A390056B053 /* WorkflowActionPickerController.m */,
+				7A02083A1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.h */,
+				7A02083B1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.m */,
+				7A02083C1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.xib */,
+				7A02083F1AD063C70056B053 /* WorkflowActionCell.h */,
+				7A0208401AD063C70056B053 /* WorkflowActionCell.m */,
+				7A02082D1AD057350056B053 /* WorkflowSMSActionCell.h */,
+				7A02082E1AD057350056B053 /* WorkflowSMSActionCell.m */,
+				7A0208321AD057A90056B053 /* WorkflowSMSActionCell.xib */,
+				7A0208241AD054090056B053 /* Workflow.h */,
+				7A0208251AD054090056B053 /* Workflow.m */,
+				7A0208271AD0541C0056B053 /* WorkflowAction.h */,
+				7A0208281AD0541C0056B053 /* WorkflowAction.m */,
+				7A02082A1AD054480056B053 /* WorkflowSMSAction.h */,
+				7A02082B1AD054480056B053 /* WorkflowSMSAction.m */,
+				7A7752541AD04B490025C2C1 /* Main.storyboard */,
+				7A7752571AD04B490025C2C1 /* Images.xcassets */,
+				7A7752591AD04B490025C2C1 /* LaunchScreen.xib */,
+				7A77524A1AD04B490025C2C1 /* Supporting Files */,
+			);
+			path = "SMS Workflows";
+			sourceTree = "<group>";
+		};
+		7A77524A1AD04B490025C2C1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7A77524B1AD04B490025C2C1 /* Info.plist */,
+				7A77524C1AD04B490025C2C1 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DDF6F3F9D6816BF2787FE841 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D23D6A6D4F1178371403024A /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7A7752461AD04B490025C2C1 /* SMS Workflows */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A77526A1AD04B4A0025C2C1 /* Build configuration list for PBXNativeTarget "SMS Workflows" */;
+			buildPhases = (
+				DAF40BB7BA34B6F46A3F492B /* Check Pods Manifest.lock */,
+				7A7752431AD04B490025C2C1 /* Sources */,
+				7A7752441AD04B490025C2C1 /* Frameworks */,
+				7A7752451AD04B490025C2C1 /* Resources */,
+				CE30804B8E7D6A90A27CD97B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SMS Workflows";
+			productName = "SMS Workflows";
+			productReference = 7A7752471AD04B490025C2C1 /* SMS Workflows.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7A77523F1AD04B490025C2C1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Adrien Truong";
+				TargetAttributes = {
+					7A7752461AD04B490025C2C1 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 7A7752421AD04B490025C2C1 /* Build configuration list for PBXProject "SMS Workflows" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7A77523E1AD04B490025C2C1;
+			productRefGroup = 7A7752481AD04B490025C2C1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7A7752461AD04B490025C2C1 /* SMS Workflows */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7A7752451AD04B490025C2C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A7752561AD04B490025C2C1 /* Main.storyboard in Resources */,
+				7A77525B1AD04B490025C2C1 /* LaunchScreen.xib in Resources */,
+				7A0208331AD057A90056B053 /* WorkflowSMSActionCell.xib in Resources */,
+				7A7752581AD04B490025C2C1 /* Images.xcassets in Resources */,
+				7A02083E1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CE30804B8E7D6A90A27CD97B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAF40BB7BA34B6F46A3F492B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7A7752431AD04B490025C2C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A02082C1AD054480056B053 /* WorkflowSMSAction.m in Sources */,
+				7A0208231AD053E20056B053 /* WorkflowViewController.m in Sources */,
+				7A0208291AD0541C0056B053 /* WorkflowAction.m in Sources */,
+				7A0208261AD054090056B053 /* Workflow.m in Sources */,
+				7A7752501AD04B490025C2C1 /* AppDelegate.m in Sources */,
+				7A0208411AD063C70056B053 /* WorkflowActionCell.m in Sources */,
+				7A0208301AD057350056B053 /* WorkflowSMSActionCell.m in Sources */,
+				7A0208441AD07DA00056B053 /* WorkflowListTableViewController.m in Sources */,
+				7A02083D1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.m in Sources */,
+				7A77524D1AD04B490025C2C1 /* main.m in Sources */,
+				7A0208391AD05A390056B053 /* WorkflowActionPickerController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7A7752541AD04B490025C2C1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A7752551AD04B490025C2C1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7A7752591AD04B490025C2C1 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A77525A1AD04B490025C2C1 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7A7752681AD04B4A0025C2C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7A7752691AD04B4A0025C2C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7A77526B1AD04B4A0025C2C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96F7483A1A794906A23A5027 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "SMS Workflows/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7A77526C1AD04B4A0025C2C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A9683A5211C4D5B9EA72B08 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "SMS Workflows/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7A7752421AD04B490025C2C1 /* Build configuration list for PBXProject "SMS Workflows" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A7752681AD04B4A0025C2C1 /* Debug */,
+				7A7752691AD04B4A0025C2C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A77526A1AD04B4A0025C2C1 /* Build configuration list for PBXNativeTarget "SMS Workflows" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A77526B1AD04B4A0025C2C1 /* Debug */,
+				7A77526C1AD04B4A0025C2C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7A77523F1AD04B490025C2C1 /* Project object */;
+}

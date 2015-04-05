@@ -1,0 +1,13 @@
+PODS:
+  - Firebase (2.2.0)
+  - RDHCollectionViewGridLayout (1.2.1)
+
+DEPENDENCIES:
+  - Firebase
+  - RDHCollectionViewGridLayout (~> 1.2)
+
+SPEC CHECKSUMS:
+  Firebase: e5f9cf72c72a9fdaf7e136012b6c52a263a23ca7
+  RDHCollectionViewGridLayout: 580e29225e8a625b05226d3d3bcd88833720cfee
+
+COCOAPODS: 0.36.3

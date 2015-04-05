@@ -33,7 +33,8 @@ app.post('/sms', function(req, res) {
     var path = number + '/' + receivedText + '/actions';
     console.log(path);
     var actionsRef = usersRef.child(path);
-    actionsRef.once('value', function(actions) {
+    actionsRef.once('value', function(actionsSnapshot) {
+    	var actions = actionsSnapshot.val();
     	console.log(actions);
     	for (var i = 0; i < actions.length; i++) {
     		var action = actions[i];

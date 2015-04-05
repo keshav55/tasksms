@@ -6,8 +6,13 @@ var Firebase = require("firebase");
 var twilio = require('twilio');
 var client = require('twilio')('AC1d8ae61e37d74d0e48947d095c9ae32d','445f2f98c8a9d82b55123e3ea24a9817')
 
+var express = require('express');
 var app = express();
+app.set('port', process.env.PORT || 3000);
 
+app.listen(app.get('port'), '0.0.0.0', function() {
+  console.log('Server listening on port ' + app.get('port'));
+});
 
 var myFirebaseRef = new Firebase("https://tasksms.firebaseio.com/");
 

@@ -30,7 +30,6 @@
     self.workflows = [NSMutableArray array];
     
     self.firebase = [[Firebase alloc] initWithUrl:kFirechatNS];
-    [self.firebase setValue:@"Test"];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonTapped)];
     

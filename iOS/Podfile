@@ -2,3 +2,4 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 pod 'Firebase'
 pod 'RDHCollectionViewGridLayout', '~> 1.2'
+pod 'MyoSDK', :git => 'https://github.com/yagudaev/MyoSDK.git'

@@ -19,6 +19,10 @@
 		7A02083E1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A02083C1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.xib */; };
 		7A0208411AD063C70056B053 /* WorkflowActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0208401AD063C70056B053 /* WorkflowActionCell.m */; };
 		7A0208441AD07DA00056B053 /* WorkflowListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0208431AD07DA00056B053 /* WorkflowListTableViewController.m */; };
+		7A5D46F31AD1801C00B57E24 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5D46F21AD1801C00B57E24 /* TableViewController.m */; };
+		7A5D46F61AD180C000B57E24 /* Command.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5D46F51AD180C000B57E24 /* Command.m */; };
+		7A5D46FA1AD1812A00B57E24 /* CommandTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5D46F81AD1812A00B57E24 /* CommandTableViewCell.m */; };
+		7A5D46FB1AD1812A00B57E24 /* CommandTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A5D46F91AD1812A00B57E24 /* CommandTableViewCell.xib */; };
 		7A77524D1AD04B490025C2C1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A77524C1AD04B490025C2C1 /* main.m */; };
 		7A7752501AD04B490025C2C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A77524F1AD04B490025C2C1 /* AppDelegate.m */; };
 		7A7752561AD04B490025C2C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7752541AD04B490025C2C1 /* Main.storyboard */; };
@@ -47,6 +51,13 @@
 		7A0208401AD063C70056B053 /* WorkflowActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkflowActionCell.m; sourceTree = "<group>"; };
 		7A0208421AD07DA00056B053 /* WorkflowListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkflowListTableViewController.h; sourceTree = "<group>"; };
 		7A0208431AD07DA00056B053 /* WorkflowListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkflowListTableViewController.m; sourceTree = "<group>"; };
+		7A5D46F11AD1801B00B57E24 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		7A5D46F21AD1801C00B57E24 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		7A5D46F41AD180C000B57E24 /* Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Command.h; sourceTree = "<group>"; };
+		7A5D46F51AD180C000B57E24 /* Command.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Command.m; sourceTree = "<group>"; };
+		7A5D46F71AD1812A00B57E24 /* CommandTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandTableViewCell.h; sourceTree = "<group>"; };
+		7A5D46F81AD1812A00B57E24 /* CommandTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandTableViewCell.m; sourceTree = "<group>"; };
+		7A5D46F91AD1812A00B57E24 /* CommandTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommandTableViewCell.xib; sourceTree = "<group>"; };
 		7A7752471AD04B490025C2C1 /* SMS Workflows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SMS Workflows.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A77524B1AD04B490025C2C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A77524C1AD04B490025C2C1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -104,6 +115,13 @@
 			children = (
 				7A77524E1AD04B490025C2C1 /* AppDelegate.h */,
 				7A77524F1AD04B490025C2C1 /* AppDelegate.m */,
+				7A5D46F11AD1801B00B57E24 /* TableViewController.h */,
+				7A5D46F21AD1801C00B57E24 /* TableViewController.m */,
+				7A5D46F41AD180C000B57E24 /* Command.h */,
+				7A5D46F51AD180C000B57E24 /* Command.m */,
+				7A5D46F71AD1812A00B57E24 /* CommandTableViewCell.h */,
+				7A5D46F81AD1812A00B57E24 /* CommandTableViewCell.m */,
+				7A5D46F91AD1812A00B57E24 /* CommandTableViewCell.xib */,
 				7A0208421AD07DA00056B053 /* WorkflowListTableViewController.h */,
 				7A0208431AD07DA00056B053 /* WorkflowListTableViewController.m */,
 				7A0208211AD053E20056B053 /* WorkflowViewController.h */,
@@ -211,6 +229,7 @@
 				7A7752561AD04B490025C2C1 /* Main.storyboard in Resources */,
 				7A77525B1AD04B490025C2C1 /* LaunchScreen.xib in Resources */,
 				7A0208331AD057A90056B053 /* WorkflowSMSActionCell.xib in Resources */,
+				7A5D46FB1AD1812A00B57E24 /* CommandTableViewCell.xib in Resources */,
 				7A7752581AD04B490025C2C1 /* Images.xcassets in Resources */,
 				7A02083E1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.xib in Resources */,
 			);
@@ -263,6 +282,9 @@
 				7A7752501AD04B490025C2C1 /* AppDelegate.m in Sources */,
 				7A0208411AD063C70056B053 /* WorkflowActionCell.m in Sources */,
 				7A0208301AD057350056B053 /* WorkflowSMSActionCell.m in Sources */,
+				7A5D46F31AD1801C00B57E24 /* TableViewController.m in Sources */,
+				7A5D46F61AD180C000B57E24 /* Command.m in Sources */,
+				7A5D46FA1AD1812A00B57E24 /* CommandTableViewCell.m in Sources */,
 				7A0208441AD07DA00056B053 /* WorkflowListTableViewController.m in Sources */,
 				7A02083D1AD05BFB0056B053 /* WorkflowActionCollectionViewCell.m in Sources */,
 				7A77524D1AD04B490025C2C1 /* main.m in Sources */,

@@ -51,23 +51,28 @@ var handleText = function(number, receivedText) {
 	}
 	console.log('received ' + receivedText + ' from ' + number);
 
-    var path = 'users' + '/' + number + '/workflows/' + receivedText + '/actions';
-    console.log(path);
-    var actionsRef = myFirebaseRef.child(path);
-    actionsRef.once('value', function(actionsSnapshot) {
-    	var actions = actionsSnapshot.val();
-    	for (var i = 0; i < actions.length; i++) {
-    		var action = actions[i];
-    		if (action.type === 'SMS') {
-    			var message = action.message;
-    			for (var j = 0; j < action.recipients.length; j++) {
-    				var recipient = action.recipients[j];
-    				recipient = '+' + recipient;
-    				sendSMS(recipient, message);
-    			}
-    		}
-    	}
-    });
+	var codeWordsPath = 'users/' + number + '/codeWords/';
+	var codeWordsRef = myFirebaseRef.child(codeWordsPath);
+	codeWordsRef.once('value', function(codeWordsSnapshot) {
+		var codeWords = codeWordsSnapshot.val();
+		var matchingCodeWord;
+		for (var codeWord in codeWords) {
+			if (receivedText.indexOf(codeWord)) {
+				matchingCodeWord = codeWord;
+				break;
+			}
+		}
+
+		if (matchingCodeWord) {
+			var command = codeWords[matchingCodeWord];
+			var message = command.message;
+	    	for (var i = 0; i < command.recipients.length; i++) {
+	    		var recipient = command.recipients[i];
+	    		recipient = '+' + recipient;
+	    		sendSMS(recipient, message);
+	    	}
+		}
+	});
 }
 
 

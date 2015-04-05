@@ -10,4 +10,8 @@
 
 @interface Command : NSObject
 
+@property (nonatomic, copy) NSString *codeWord;
+@property (nonatomic, strong) NSArray *recipients;
+@property (nonatomic, copy) NSString *message;
+
 @end

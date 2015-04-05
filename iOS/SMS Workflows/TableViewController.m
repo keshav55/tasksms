@@ -7,8 +7,14 @@
 //
 
 #import "TableViewController.h"
+#import "CommandTableViewCell.h"
+#import "Command.h"
+#import <Firebase/Firebase.h>
 
 @interface TableViewController ()
+
+@property (nonatomic, strong) NSMutableArray *commands;
+@property (nonatomic, strong) Firebase *firebase;
 
 @end
 
@@ -17,84 +23,100 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.title = @"Commands";
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UINib *nib = [UINib nibWithNibName:@"CommandTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"CommandTableViewCell"];
+    
+    self.commands = [NSMutableArray arrayWithObject:[[Command alloc] init]];
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    self.firebase = [[Firebase alloc] initWithUrl:@"https://tasksms.firebaseio.com"];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Update" style:UIBarButtonItemStylePlain target:self action:@selector(updateButtonTapped)];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)updateButtonTapped
+{
+    NSString *phoneNumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"PhoneNumber"];
+    NSString *path = [NSString stringWithFormat:@"users/%@/codeWords", phoneNumber];
+    
+    NSMutableDictionary *commandsByCodeWord = [NSMutableDictionary dictionary];
+    for (Command *command in self.commands) {
+        NSDictionary *dict = @{@"recipients": command.recipients,
+                               @"message": command.message};
+        commandsByCodeWord[command.codeWord] = dict;
+    }
+    
+    Firebase *ref = [self.firebase childByAppendingPath:path];
+    [ref setValue:commandsByCodeWord];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return [self.commands count] + 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == [self.commands count]) {
+        return 44;
+    } else {
+        return 216;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == [self.commands count]) {
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell.textLabel.text = @"Add New Command...";
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        
+        return cell;
+    }
     
-    // Configure the cell...
+    CommandTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommandTableViewCell" forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    if ([cell.codeWordTextField.allTargets count] == 0) {
+        [cell.codeWordTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+        [cell.recipientsTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+        [cell.messageTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    }
     
     return cell;
 }
-*/
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    if (indexPath.section == [self.commands count]) {
+        [self.commands addObject:[[Command alloc] init]];
+        
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:indexPath.section];
+        [self.tableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+- (void)textFieldDidChange:(UITextField *)textField
+{
+    CGPoint correctedPoint = [textField convertPoint:textField.bounds.origin toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:correctedPoint];
+    CommandTableViewCell *cell = (CommandTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    Command *command = self.commands[indexPath.section];
+    command.codeWord = cell.codeWordTextField.text;
+    command.recipients = [cell.recipientsTextField.text componentsSeparatedByString:@", "];
+    command.message = cell.messageTextField.text;
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

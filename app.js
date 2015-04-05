@@ -21,26 +21,28 @@ var Firebase = require('firebase'),
 
 app.post('/sms', function(req, res) {
 	var receivedText = req.body.Body;
-    var number = req.body.from;
+    var number = req.body.From;
 
-    	console.log('recieved from ' + number);
+    console.log(req.body);
 
-        var path = number + '/' + receivedText;
-        console.log(path);
-        var workflowRef = usersRef.child(path);
-        workflowRef.once('actions', function(actions) {
-        	for (var i = 0; i < actions.length; i++) {
-        		var action = actions[i];
-        		if (action.type === 'SMS') {
-        			var message = action.message;
-        			for (var j = 0; j < actions.recipients.length; j++) {
-        				var recipient = actions.recipients[j];
-        				recipient = '+' + recipient;
-        				sendSMS(recipient, message);
-        			}
-        		}
-        	}
-        });
+	console.log('received ' + receivedText + ' from ' + number);
+
+    var path = number + '/' + receivedText;
+    console.log(path);
+    var workflowRef = usersRef.child(path);
+    workflowRef.once('actions', function(actions) {
+    	for (var i = 0; i < actions.length; i++) {
+    		var action = actions[i];
+    		if (action.type === 'SMS') {
+    			var message = action.message;
+    			for (var j = 0; j < actions.recipients.length; j++) {
+    				var recipient = actions.recipients[j];
+    				recipient = '+' + recipient;
+    				sendSMS(recipient, message);
+    			}
+    		}
+    	}
+    });
 });
 
 var sendSMS = function(number, message) {

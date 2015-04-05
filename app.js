@@ -20,9 +20,12 @@ app.post('/sms', function(req, res) {
         var receivedText = req.body.Body;
         var number = req.body.from;
 
+    	console.log('recieved from ' + number);
+
         var path = number + '/' + receivedText;
+        console.log(path);
         var workflowRef = usersRef.child(path);
-        workflowRef.once("actions", function(actions) {
+        workflowRef.once('actions', function(actions) {
         	for (var i = 0; i < actions.length; i++) {
         		var action = actions[i];
         		if (action.type === 'SMS') {

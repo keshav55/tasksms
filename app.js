@@ -1,3 +1,6 @@
+var express = require('express');
+var app = express();
+
 var restler = require('restler');
 var unirest = require('unirest');
 var Firebase = require("firebase");
@@ -8,8 +11,6 @@ app.use(bodyParser());
 var twilio = require('twilio');
 var client = new twilio.RestClient();
 
-var express = require('express');
-var app = express();
 app.set('port', process.env.PORT || 3000);
 
 app.listen(app.get('port'), '0.0.0.0', function() {

@@ -4,55 +4,53 @@ app.set('port', process.env.PORT || 3000);
 
 var restler = require('restler');
 var unirest = require('unirest');
-var Firebase = require("firebase");
 
 app.use(require('body-parser').json());
 app.use(require('body-parser').urlencoded({extended: true}));
 
 var twilio = require('twilio');
-var client = new twilio.RestClient();
+var client = new twilio.RestClient('AC1d8ae61e37d74d0e48947d095c9ae32d', '445f2f98c8a9d82b55123e3ea24a9817');
 
 app.listen(app.get('port'), '0.0.0.0', function() {
   console.log('Server listening on port ' + app.get('port'));
 });
 
-var Firebase = require('firebase'),
-    myFirebaseRef = new Firebase('https://tasksms.firebaseio.com/');
+var Firebase = require('firebase');
+var myFirebaseRef = new Firebase('https://tasksms.firebaseio.com/');
 
 app.post('/sms', function(req, res) {
 	var receivedText = req.body.Body;
     var number = req.body.From;
 
+	handleText(number, receivedText);
+});
+
+var handleText = function(number, receivedText) {
 	if (number.substring(0, 1) == '+') { 
   		number = number.substring(1);
 	}
-    console.log(req.body);
-
 	console.log('received ' + receivedText + ' from ' + number);
 
-    var path = 'users' + '/' + number + '/' + receivedText + '/actions';
+    var path = 'users' + '/' + number + '/workflows/' + receivedText + '/actions';
     console.log(path);
     var actionsRef = myFirebaseRef.child(path);
-    console.log(actionsRef);
     actionsRef.once('value', function(actionsSnapshot) {
+    	console.log('actionsSnapshot: ' + actionsRef);
     	var actions = actionsSnapshot.val();
     	console.log(actions);
     	for (var i = 0; i < actions.length; i++) {
     		var action = actions[i];
-    		console.log(action);
     		if (action.type === 'SMS') {
     			var message = action.message;
-    			console.log(action.recipients);
-    			for (var j = 0; j < actions.recipients.length; j++) {
-    				var recipient = actions.recipients[j];
-    				console.log(recipient);
+    			for (var j = 0; j < action.recipients.length; j++) {
+    				var recipient = action.recipients[j];
     				recipient = '+' + recipient;
     				sendSMS(recipient, message);
     			}
     		}
     	}
     });
-});
+}
 
 var sendSMS = function(number, message) {
 	console.log('sending ' + message + ' to ' + number);
@@ -66,7 +64,6 @@ var sendSMS = function(number, message) {
 	  		console.log(result.status, result.headers, result.body);
 		});
 };
-
 
 // if (array) {
 

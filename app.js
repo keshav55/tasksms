@@ -24,7 +24,7 @@ app.post('/sms', function(req, res) {
     var number = req.body.From;
 
 	if (number.substring(0, 1) == '+') { 
-  		number = str.substring(1);
+  		number = number.substring(1);
 	}
     console.log(req.body);
 

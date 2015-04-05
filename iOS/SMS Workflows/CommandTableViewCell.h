@@ -10,4 +10,8 @@
 
 @interface CommandTableViewCell : UITableViewCell
 
+@property (nonatomic, weak) IBOutlet UITextField *codeWordTextField;
+@property (nonatomic, weak) IBOutlet UITextField *recipientsTextField;
+@property (nonatomic, weak) IBOutlet UITextField *messageTextField;
+
 @end

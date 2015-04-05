@@ -32,6 +32,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+//    self.tableView.backgroundColor = [UIColor colorWithRed:220.0f/255.0f green:220.0f/255.0f blue:220.0f/255.0f alpha:1.0];
+    
     self.tableView.backgroundColor = [UIColor whiteColor];
     
     self.title = @"Commands";
@@ -50,7 +53,7 @@
     Firebase *codeWordsRef = [self.firebase childByAppendingPath:path];
     [codeWordsRef observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         NSDictionary *codeWords = snapshot.value;
-        if ([codeWords count] > 0) {
+        if (codeWords != [NSNull null] && [codeWords count] > 0) {
             NSMutableArray *commands = [NSMutableArray array];
             for (NSString *codeWord in codeWords) {
                 NSDictionary *commandDict = codeWords[codeWord];
@@ -121,9 +124,11 @@
     
     NSMutableDictionary *commandsByCodeWord = [NSMutableDictionary dictionary];
     for (Command *command in self.commands) {
-        NSDictionary *dict = @{@"recipients": command.recipients,
-                               @"message": command.message};
-        commandsByCodeWord[command.codeWord] = dict;
+        if (command.codeWord && [command.recipients count] > 0 && command.message) {
+            NSDictionary *dict = @{@"recipients": command.recipients,
+                                   @"message": command.message};
+            commandsByCodeWord[command.codeWord] = dict;
+        }
     }
     
     Firebase *ref = [self.firebase childByAppendingPath:path];
@@ -156,7 +161,7 @@
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         cell.textLabel.text = @"Add New Command";
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
-        cell.backgroundColor = [UIColor colorWithRed:0.0f/255.0f green:180.0f/255.0f blue:255.0f/255.0f alpha:1.0];
+        cell.backgroundColor = [UIColor colorWithRed:30.0f/255.0f green:165.0f/255.0f blue:75.0f/255.0f alpha:1.0];
         cell.textLabel.textColor = [UIColor whiteColor];
         
         return cell;
@@ -273,7 +278,12 @@
     
     // Handle the cases of the TLMPoseType enumeration, and change the color of helloLabel based on the pose we receive.
     switch (pose.type) {
+            
         case TLMPoseTypeUnknown:
+            NSLog(@"you got it!");
+            [self sendSMS];
+            break;
+        
         case TLMPoseTypeRest:
             // Changes helloLabel's font to Helvetica Neue when the user is in a rest or unknown pose.
             NSLog(@"unknown");
@@ -290,8 +300,7 @@
             // Changes helloLabel's font to Snell Roundhand when the user is in a wave out pose.
             NSLog(@"wave");
         case TLMPoseTypeDoubleTap:
-            NSLog(@"you got it!");
-            [self sendSMS];
+    
             
             
             

@@ -7,11 +7,14 @@
     "url": "https://github.com/keshav55/tasksms"
   },
   "dependencies": {
-    "express": "4.8.x",
-    "body-parser": "1.8.x",
-    "cron": "1.0.x",
-    "twilio": "1.2.x",
-    "firebase": "1.0.x"
+    "express": "*",
+    "body-parser": "*",
+    "cron": "*",
+    "twilio": "*",
+    "firebase": "*",
+    "restler": "*",
+    "unirest": "*",
+    "body-parser": "*"
   },
   "keywords": [
     "twilio",
@@ -19,7 +22,5 @@
     "scheduling",
     "sms"
   ],
-  "engines": {
-    "node": ">= 0.8"
-  }
+  "engines": ["node >= 0.10.0"]
 }

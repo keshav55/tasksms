@@ -1,8 +1,12 @@
 var restler = require('restler');
 var unirest = require('unirest');
 var Firebase = require("firebase");
+
+var bodyParser = require('body-parser');
+app.use(bodyParser());
+
 var twilio = require('twilio');
-var client = require('twilio')('AC1d8ae61e37d74d0e48947d095c9ae32d','445f2f98c8a9d82b55123e3ea24a9817')
+var client = new twilio.RestClient();
 
 var express = require('express');
 var app = express();

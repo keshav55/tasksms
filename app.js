@@ -20,10 +20,8 @@ var Firebase = require('firebase'),
     usersRef = new Firebase('https://tasksms.firebaseio.com/users/');
 
 app.post('/sms', function(req, res) {
-	console.log(process.env.TWILIO_AUTH_TOKEN);
-    if (twilio.validateExpressRequest(req, process.env.TWILIO_AUTH_TOKEN)) {
-        var receivedText = req.body.Body;
-        var number = req.body.from;
+	var receivedText = req.body.Body;
+    var number = req.body.from;
 
     	console.log('recieved from ' + number);
 
@@ -43,10 +41,6 @@ app.post('/sms', function(req, res) {
         		}
         	}
         });
-    } else {
-    	console.log('could not validate request');
-        res.send('you are not twilio.  Buzz off.');
-    }
 });
 
 var sendSMS = function(number, message) {

@@ -24,8 +24,15 @@
 
 @implementation TableViewController
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.backgroundColor = [UIColor whiteColor];
     
     self.title = @"Commands";
     
@@ -37,6 +44,28 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.firebase = [[Firebase alloc] initWithUrl:@"https://tasksms.firebaseio.com"];
+    
+    NSString *phoneNumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"PhoneNumber"];
+    NSString *path = [NSString stringWithFormat:@"users/%@/codeWords/", phoneNumber];
+    Firebase *codeWordsRef = [self.firebase childByAppendingPath:path];
+    [codeWordsRef observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        NSDictionary *codeWords = snapshot.value;
+        if ([codeWords count] > 0) {
+            NSMutableArray *commands = [NSMutableArray array];
+            for (NSString *codeWord in codeWords) {
+                NSDictionary *commandDict = codeWords[codeWord];
+                
+                Command *command = [[Command alloc] init];
+                command.codeWord = codeWord;
+                command.recipients = commandDict[@"recipients"];
+                command.message = commandDict[@"message"];
+                
+                [commands addObject:command];
+            }
+            
+            [self.tableView reloadData];
+        }
+    }];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Update" style:UIBarButtonItemStylePlain target:self action:@selector(updateButtonTapped)];
     
@@ -125,15 +154,17 @@
 {
     if (indexPath.section == [self.commands count]) {
         UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-        cell.textLabel.text = @"Add New Command...";
+        cell.textLabel.text = @"Add New Command";
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        cell.backgroundColor = [UIColor colorWithRed:0.0f/255.0f green:180.0f/255.0f blue:255.0f/255.0f alpha:1.0];
+        cell.textLabel.textColor = [UIColor whiteColor];
         
         return cell;
     }
     
     CommandTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommandTableViewCell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+        
     if ([cell.codeWordTextField.allTargets count] == 0) {
         [cell.codeWordTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
         [cell.recipientsTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];

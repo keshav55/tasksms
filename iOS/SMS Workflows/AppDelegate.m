@@ -15,7 +15,6 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"PhoneNumber"]) {
@@ -35,6 +34,12 @@
             [self.window.rootViewController presentViewController:alertController animated:YES completion:nil];
         });
     }
+    
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:0.0f/255.0f green:180.0f/255.0f blue:255.0f/255.0f alpha:1.0]];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTranslucent:NO];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+
     // Override point for customization after application launch.
     
     [TLMHub sharedHub];

@@ -2,15 +2,31 @@
 var express = require('express');
 var restler = require('restler');
 var unirest = require('unirest');
+var Firebase = require("firebase");
 
 var app = express();
 
-var array = ["+15109096676", "+15107097856"];
+
+var myFirebaseRef = new Firebase("https://tasksms.firebaseio.com/");
+
+
+
+
+
+
+
+
+
+
+
 
 var Firebase = require('firebase'),
     usersRef = new Firebase('https://tasksms.firebaseio.com/users/');
 
 
+
+
+var array = ["+15107097856"];
 
  for (var i = 0; i < array.length; i++) {
 // These code snippets use an open-source library.
@@ -22,7 +38,6 @@ unirest.post("https://twilio.p.mashape.com/AC1d8ae61e37d74d0e48947d095c9ae32d/SM
 // .send("From", "+19258923685")
 // .send("Body", "HELLO,,OKAY")
 // .send("To", "+1 (510)-709-7856")
-
 .send({ "From": "+19258923685", "Body": "topkek", "To": array[i]})
 .end(function (result) {
   console.log(result.status, result.headers, result.body);

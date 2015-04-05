@@ -1,10 +1,10 @@
 {
-  "name": "DailySMS",
-  "description": "Send daily SMS reminders using Firebase and Twilio",
-  "author": "Ricky Robinett <ricky@twilio.com>",
+  "name": "TaskSMS",
+  "description": "Automation",
+  "author": "KR",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rickyrobinett/dailysms.git"
+    "url": "https://github.com/keshav55/tasksms"
   },
   "dependencies": {
     "express": "4.8.x",

@@ -16,6 +16,12 @@ app.listen(app.get('port'), '0.0.0.0', function() {
   console.log('Server listening on port ' + app.get('port'));
 });
 
+app.configure(function () {
+    /* Configure your express app... */
+    app.use(express.urlencoded());
+});
+
+
 var Firebase = require('firebase'),
     usersRef = new Firebase('https://tasksms.firebaseio.com/users/');
 

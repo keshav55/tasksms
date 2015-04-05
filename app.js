@@ -17,7 +17,7 @@ app.listen(app.get('port'), '0.0.0.0', function() {
 });
 
 var Firebase = require('firebase'),
-    usersRef = new Firebase('https://tasksms.firebaseio.com/users/');
+    myFirebaseRef = new Firebase('https://tasksms.firebaseio.com/');
 
 app.post('/sms', function(req, res) {
 	var receivedText = req.body.Body;
@@ -30,9 +30,10 @@ app.post('/sms', function(req, res) {
 
 	console.log('received ' + receivedText + ' from ' + number);
 
-    var path = number + '/' + receivedText + '/actions';
+    var path = 'users' + '/' + number + '/' + receivedText + '/actions';
     console.log(path);
-    var actionsRef = usersRef.child(path);
+    var actionsRef = myFirebaseRef.child(path);
+    console.log(actionsRef);
     actionsRef.once('value', function(actionsSnapshot) {
     	var actions = actionsSnapshot.val();
     	console.log(actions);
